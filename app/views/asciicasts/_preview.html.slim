@@ -1,6 +1,6 @@
 - cache ['thumbnail', asciicast, asciicast.user, !!no_created_at] do
   .preview
-    = link_to asciicast, class: 'thumbnail-link' do
+    = link_to "/asciinema".concat(url_for(asciicast)), class: 'thumbnail-link' do
       .play-button
         span.arrow
           span.glyphicon.glyphicon-play
