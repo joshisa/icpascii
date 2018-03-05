@@ -34,7 +34,7 @@ passed via `ASCIINEMA_API_URL` environment variable.
 
 The options in `[record]` and `[play]` sections have the same meaning as the
 options you pass to `asciinema rec`/`asciinema play` command (see
-[Usage](/docs/usage)). If you happen to often use either `-c`, `-w` or `-y` with
+[Usage](/asciinema/docs/usage)). If you happen to often use either `-c`, `-w` or `-y` with
 these commands then consider saving it as a default in the config file.
 
 ## Configuration file locations
