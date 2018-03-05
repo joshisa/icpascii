@@ -1,19 +1,5 @@
-- cache ['thumbnail', asciicast, asciicast.user, !!no_created_at] do
-  .preview
-    = link_to "/asciinema".concat(url_for(asciicast)), class: 'thumbnail-link' do
-      .play-button
-        span.arrow
-          span.glyphicon.glyphicon-play
-      .thumbnail class="asciinema-theme-#{asciicast.theme_name}"
-        = asciicast.thumbnail(100, 15)
-
-    .info.clearfix
-      h2
-        = link_to asciicast.title, "/asciinema".concat(url_for(asciicast))
-        - if asciicast.private?
-          = render 'asciicasts/private_label'
-        - if asciicast.featured?
-          = render 'asciicasts/featured_label'
-        span.duration = asciicast.formatted_duration
-      span.author-avatar = asciicast.author_img_link
-      small by #{asciicast.author_link} #{time_ago_tag asciicast.created_at unless no_created_at}
+- asciicasts.each_slice(per_row) do |slice|
+  .row
+    - slice.each do |asciicast|
+      div class="col-md-#{12/per_row}"
+        = render 'asciicasts/preview', asciicast: asciicast, no_created_at: local_assigns[:no_created_at]
