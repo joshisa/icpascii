@@ -26,11 +26,11 @@ header.navbar.navbar-default[role="navigation"]
               b.caret
             ul.dropdown-menu
               li
-                a href=profile_path(current_user) Profile
+                a href="/asciinema".concat(profile_path(current_user)) Profile
               li
-                a href=edit_user_path Settings
+                a href="/asciinema".concat(edit_user_path) Settings
               li
-                a.logout href=logout_path Log out
+                a.logout href="/asciinema".concat(logout_path) Log out
         - else
           li
-            a#log-in href=new_login_path Log in / Sign up
+            a#log-in href="/asciinema".concat(new_login_path) Log in / Sign up
