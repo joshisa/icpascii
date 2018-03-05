@@ -59,9 +59,9 @@ defmodule AsciinemaWeb.Router do
     get "/a/:id/gif", AsciicastAnimationController, :show
   end
 
-  scope "/asciinema", AsciinemaWeb do
+  scope "/", AsciinemaWeb do
     require Logger
-    Logger.info "FOOBAR:: we are in the docs scope"
+    Logger.info "ICPROX:: we are in the docs scope"
     pipe_through :browser # Use the default browser stack
 
     get "/a/:id", AsciicastController, :show
