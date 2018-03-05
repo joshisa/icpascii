@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/a/:id.js' => redirect(ActionController::Base.helpers.asset_path("widget.js"), status: 302)
 
-  resources :asciicasts, path: '/asciinema/a' do
+  resources :asciicasts, path: '/a' do
     member do
       get '/raw' => 'asciicasts#embed' # legacy route, probably no longer used anywhere
       get :embed
