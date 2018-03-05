@@ -30,14 +30,14 @@ class UserDecorator < ApplicationDecorator
   end
 
   def url
-    h.profile_path(model)
+    '/asciinema'.concat(h.profile_path(model))
   end
 
   private
 
   def wrap_with_link(html)
     if id
-      h.link_to html, h.profile_path(model), title: display_name
+      h.link_to html, '/asciinema'.concat(h.profile_path(model)), title: display_name
     else
       html
     end
