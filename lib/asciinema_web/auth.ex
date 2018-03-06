@@ -38,7 +38,7 @@ defmodule AsciinemaWeb.Auth do
     conn
     |> save_return_path
     |> put_flash(:info, msg)
-    |> redirect(to: "/login/new")
+    |> redirect(to: "/asciinema/login/new")
     |> halt
   end
 
