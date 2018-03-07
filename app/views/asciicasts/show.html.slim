@@ -45,32 +45,32 @@
               ul.dropdown-menu
                 - if page.show_edit_link?
                   li
-                    = link_to edit_asciicast_path(page.asciicast) do
+                    = link_to "/asciinema".concat(edit_asciicast_path(page.asciicast)) do
                       span.glyphicon.glyphicon-edit
                       '  Edit
                 - if page.show_set_featured_link?
                   li
-                    = link_to(asciicast_path(page.asciicast, 'asciicast[featured]' => 1), method: :put) do
+                    = link_to("/asciinema".concat(asciicast_path(page.asciicast, 'asciicast[featured]' => 1)), method: :put) do
                       span.glyphicon.glyphicon-eye-open
                       '  Make featured
                 - if page.show_unset_featured_link?
                   li
-                    = link_to(asciicast_path(page.asciicast, 'asciicast[featured]' => 0), method: :put) do
+                    = link_to("/asciinema".concat(asciicast_path(page.asciicast, 'asciicast[featured]' => 0)), method: :put) do
                       span.glyphicon.glyphicon-eye-close
                       '  Make not featured
                 - if page.show_make_public_link?
                   li
-                    = link_to(asciicast_path(page.asciicast, 'asciicast[private]' => 0), method: :put) do
+                    = link_to("/asciinema".concat(asciicast_path(page.asciicast, 'asciicast[private]' => 0)), method: :put) do
                       span.glyphicon.glyphicon-eye-open
                       '  Make public
                 - if page.show_make_private_link?
                   li
-                    = link_to(asciicast_path(page.asciicast, 'asciicast[private]' => 1), method: :put) do
+                    = link_to("/asciinema".concat(asciicast_path(page.asciicast, 'asciicast[private]' => 1)), method: :put) do
                       span.glyphicon.glyphicon-eye-close
                       '  Make private
                 - if page.show_delete_link?
                   li
-                    = link_to(asciicast_path(page.asciicast), method: :delete, data: { confirm: 'Really delete this asciicast?' }) do
+                    = link_to("/asciinema".concat(asciicast_path(page.asciicast)), method: :delete, data: { confirm: 'Really delete this asciicast?' }) do
                       span.glyphicon.glyphicon-remove
                       '  Delete
 
