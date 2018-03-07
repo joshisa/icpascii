@@ -96,7 +96,8 @@ defmodule Asciinema.Accounts do
 
   def signup_url(email) do
     token = signup_token(email)
-    AsciinemaWeb.Router.Helpers.users_url(AsciinemaWeb.Endpoint, :new, t: token)
+    Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema/users/new?t=",token],"")
+#   AsciinemaWeb.Router.Helpers.users_url(AsciinemaWeb.Endpoint, :new, t: token)
   end
 
   def login_token(%User{id: id, last_login_at: last_login_at}) do
@@ -106,7 +107,8 @@ defmodule Asciinema.Accounts do
 
   def login_url(%User{} = user) do
     token = login_token(user)
-    AsciinemaWeb.Router.Helpers.session_url(AsciinemaWeb.Endpoint, :new, t: token)
+    Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema/session/new?t=",token],"")
+#    AsciinemaWeb.Router.Helpers.session_url(AsciinemaWeb.Endpoint, :new, t: token)
   end
 
   @login_token_max_age 15 * 60 # 15 minutes

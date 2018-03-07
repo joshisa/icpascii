@@ -7,7 +7,7 @@ defmodule AsciinemaWeb.SessionController do
   def new(conn, %{"t" => login_token}) do
     conn
     |> put_session(:login_token, login_token)
-    |> redirect(to: session_path(conn, :new))
+    |> redirect(to: Enum.join(["/asciinema",(session_path(conn, :new))],""))
   end
   def new(conn, _params) do
     render(conn, "new.html")
@@ -41,9 +41,9 @@ defmodule AsciinemaWeb.SessionController do
   defp redirect_to_profile(conn) do
     case conn.assigns.current_user do
       %User{username: nil} ->
-        redirect(conn, to: "/username/new")
+        redirect(conn, to: "/asciinema/username/new")
       %User{} = user ->
-        redirect_back_or(conn, to: profile_path(user))
+        redirect_back_or(conn, to: Enum.join(["/asciinema",(profile_path(user))],""))
     end
   end
 end
