@@ -1,6 +1,6 @@
 Hello,
 
-Click the following link to log in to asciinema.org:
+Click the following link to log in to your Asciinema kubernetes deployment at <%= Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema"],"") %>:
 
 <%= @login_url %>
 
