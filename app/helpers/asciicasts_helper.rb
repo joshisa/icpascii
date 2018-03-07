@@ -39,20 +39,20 @@ module AsciicastsHelper
   end
 
   def embed_script(asciicast)
-    src = asciicast_url(asciicast, format: :js)
+    src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :js))
     id = "asciicast-#{asciicast.to_param}"
     %(<script src="#{src}" id="#{id}" async></script>)
   end
 
   def embed_html_link(asciicast)
-    img_src = asciicast_url(asciicast, format: :png)
-    url = asciicast_url(asciicast)
+    img_src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :png))
+    url = ("#{root_url}asciinema"<<asciicast_path(asciicast))
     %(<a href="#{url}" target="_blank"><img src="#{img_src}" /></a>)
   end
 
   def embed_markdown_link(asciicast)
-    img_src = asciicast_url(asciicast, format: :png)
-    url = asciicast_url(asciicast)
+    img_src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :png))
+    url = ("#{root_url}asciinema"<<asciicast_path(asciicast))
     "[![asciicast](#{img_src})](#{url})"
   end
 

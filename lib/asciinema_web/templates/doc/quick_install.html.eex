@@ -2,7 +2,8 @@
   Install asciinema with:
 </p>
 
-<pre><code>brew install asciinema</code></pre>
+<pre><code>curl -Lo asciinema-2.0.0.1-py3-none-any.whl http://ibm.biz/asciinema-client
+pip3 install asciinema-2.0.0.1-py3-none-any.whl</code></pre>
 
 <p>
   See other <a href="<%= Enum.join(["/asciinema", doc_path(@conn, :show, :installation)], "") %>">installation options</a>.
