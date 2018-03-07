@@ -14,7 +14,7 @@
           <% end %>
         </p>
 
-        <a href="<%= asciicast_url(format: :cast, dl: true) %>" class="btn btn-primary" download="<%= page.asciicast_download_filename %>" rel="nofollow">Download</a>
+        <a href="<%= "/asciinema".concat(asciicast_path(format: :cast, dl: true)) %>" class="btn btn-primary" download="<%= page.asciicast_download_filename %>" rel="nofollow">Download</a>
 
         <h2>Replay in terminal</h2>
         <p>
