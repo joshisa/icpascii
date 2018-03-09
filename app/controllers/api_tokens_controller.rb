@@ -6,7 +6,7 @@ class ApiTokensController < ApplicationController
     api_token = ApiToken.find(params[:id])
     authorize api_token
     api_token.revoke!
-    redirect_to "/asciinema".concat(edit_user_path), notice: "Token revoked."
+    redirect_to "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(edit_user_path), notice: "Token revoked."
   end
 
 end

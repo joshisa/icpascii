@@ -54,7 +54,7 @@ class AsciicastsController < ApplicationController
     authorize asciicast
 
     if asciicast_updater.update(asciicast, update_params)
-      redirect_to "/asciinema".concat(asciicast_path(asciicast)),
+      redirect_to "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(asciicast_path(asciicast)),
                   :notice => 'Asciicast was updated.'
     else
       render :edit
@@ -65,10 +65,10 @@ class AsciicastsController < ApplicationController
     authorize asciicast
 
     if asciicast.destroy
-      redirect_to "/asciinema".concat(profile_path(current_user)),
+      redirect_to "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(profile_path(current_user)),
                   :notice => 'Asciicast was deleted.'
     else
-      redirect_to "/asciinema".concat(asciicast_path(asciicast)),
+      redirect_to "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(asciicast_path(asciicast)),
                   :alert => "Oops, we couldn't remove this asciicast. " \
                             "Try again later."
     end

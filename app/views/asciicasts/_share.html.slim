@@ -10,7 +10,7 @@
           .col-md-6
             h2 Link
             p
-              input[type="text" value=("#{root_url}asciinema"<<asciicast_path(page.asciicast)) data-behavior="auto-select" readonly]
+              input[type="text" value=("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(page.asciicast)) data-behavior="auto-select" readonly]
               br
               span
                 ' Append
@@ -24,7 +24,7 @@
           .col-md-6
             h2 Social
             div
-              = render 'shared/social_buttons', title: page.asciicast_title, url: ("#{root_url}asciinema"<<asciicast_path(page.asciicast))
+              = render 'shared/social_buttons', title: page.asciicast_title, url: ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(page.asciicast))
 
         h2 Embed image link
         p Use snippets below to display a screenshot linking to this recording. Useful in places where scripts are not allowed (e.g. in a project's README file).
@@ -46,4 +46,4 @@
         p Paste the above script tag where you want the player to be displayed on your page.
 
         hr
-        p See #{link_to 'Sharing & embedding', '/asciinema/docs/embedding'} for additional options.
+        p See #{link_to 'Sharing & embedding', '/#{ENV['RAILS_RELATIVE_URL_ROOT']}/docs/embedding'} for additional options.
