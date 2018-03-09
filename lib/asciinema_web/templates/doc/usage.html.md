@@ -104,7 +104,7 @@ On every machine you run asciinema recorder, you get a new, unique API token. If
 you're already logged in on asciinema.org website and you run `asciinema auth`
 from a new computer then this new device will be linked to your account.
 
-You can synchronize your [config file](/asciinema/docs/config) (which keeps
+You can synchronize your [config file](/<%= System.get_env("RAILS_RELATIVE_URL_ROOT") %>/docs/config) (which keeps
 the API token) across the machines so all of them use the same token, but that's
 not necessary. You can assign new tokens to your account from as many machines
 as you want.

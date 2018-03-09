@@ -52,7 +52,7 @@ the actual password is visible to the user, and thus recorded by asciinema.
 
 ## Can I embed the asciicast player on my blog?
 
-Yes, see [embedding docs](/asciinema/docs/embedding).
+Yes, see [embedding docs](/<%= System.get_env("RAILS_RELATIVE_URL_ROOT") %>/docs/embedding).
 
 ## How can I delete my asciicast?
 

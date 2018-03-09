@@ -38,7 +38,7 @@ defmodule AsciinemaWeb.Auth do
     conn
     |> save_return_path
     |> put_flash(:info, msg)
-    |> redirect(to: "/asciinema/login/new")
+    |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), "/login/new"],""))
     |> halt
   end
 

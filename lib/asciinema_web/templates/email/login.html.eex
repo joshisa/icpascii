@@ -1,6 +1,6 @@
 <p>Hello,</p>
 
-<p>Click the following link to log in to your <a href="<%= Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema"],"") %>">Asciinema kubernetes deployment</a>:</p>
+<p>Click the following link to log in to your <a href="<%= Enum.join([AsciinemaWeb.Endpoint.url, "/", System.get_env("RAILS_RELATIVE_URL_ROOT")],"") %>">Asciinema kubernetes deployment</a>:</p>
 
 <p><a href="<%= @login_url %>"><%= @login_url %></a></p>
 

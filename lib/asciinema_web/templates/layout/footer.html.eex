@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-md-4 col-xs-4">
         <ul class="links">
-          <li><a href="/asciinema/about">About</a></li>
-          <li><a href="/asciinema/contributing">Contributing</a></li>
-          <li><a href="/asciinema/tos">Terms of Service</a></li>
-          <li><a href="/asciinema/privacy">Privacy Policy</a></li>
-          <li><a href="/asciinema/contact">Contact</a></li>
+          <li><a href="/<%= Enum.join([System.get_env("RAILS_RELATIVE_URL_ROOT"), "/about"],"") %>">About</a></li>
+          <li><a href="/<%= Enum.join([System.get_env("RAILS_RELATIVE_URL_ROOT"), "/contributing"],"") %>">Contributing</a></li>
+          <li><a href="/<%= Enum.join([System.get_env("RAILS_RELATIVE_URL_ROOT"), "/tos"],"") %>">Terms of Service</a></li>
+          <li><a href="/<%= Enum.join([System.get_env("RAILS_RELATIVE_URL_ROOT"), "/privacy"],"") %>">Privacy Policy</a></li>
+          <li><a href="/<%= Enum.join([System.get_env("RAILS_RELATIVE_URL_ROOT"), "/contact"],"") %>">Contact</a></li>
         </ul>
       </div>
 

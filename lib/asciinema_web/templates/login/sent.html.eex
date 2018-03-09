@@ -12,7 +12,7 @@
 
       <p>
         If the email doesn't show up in your inbox, check your spam folder,
-        or <a href="<%= Enum.join(["/asciinema",(login_path(@conn, :new))],"") %>">try again</a>.
+        or <a href="<%= Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (login_path(@conn, :new))],"") %>">try again</a>.
       </p>
     </div>
   </div>
