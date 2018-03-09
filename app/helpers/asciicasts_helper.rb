@@ -52,7 +52,7 @@ module AsciicastsHelper
 
   def embed_markdown_link(asciicast)
     img_src = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast, format: :png))
-    url = ("#{root_url}"/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast))
+    url = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast))
     "[![asciicast](#{img_src})](#{url})"
   end
 
