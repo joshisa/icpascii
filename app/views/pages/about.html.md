@@ -20,7 +20,7 @@ If technical details interest you then read more about
 
 ## Contributing
 
-Help the project by [contributing](<%= /<%= #{ENV['RAILS_RELATIVE_URL_ROOT']}contributing_path %>) money or time.
+Help the project by [contributing](/<%= "#{ENV['RAILS_RELATIVE_URL_ROOT']}" %><%= contributing_path %>) money or time.
 
 ## A bit of history
 
