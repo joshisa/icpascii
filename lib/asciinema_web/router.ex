@@ -60,8 +60,6 @@ defmodule AsciinemaWeb.Router do
   end
 
   scope "/", AsciinemaWeb do
-    require Logger
-    Logger.info "ICPROX:: we are in the docs scope"
     pipe_through :browser # Use the default browser stack
 
     get "/a/:id", AsciicastController, :show

@@ -1,6 +1,6 @@
 - cache ['thumbnail', asciicast, asciicast.user, !!no_created_at] do
   .preview
-    = link_to "/asciinema".concat(url_for(asciicast)), class: 'thumbnail-link' do
+    = link_to "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(url_for(asciicast)), class: 'thumbnail-link' do
       .play-button
         span.arrow
           span.glyphicon.glyphicon-play
@@ -9,7 +9,7 @@
 
     .info.clearfix
       h2
-        = link_to asciicast.title, "/asciinema".concat(url_for(asciicast))
+        = link_to asciicast.title, "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(url_for(asciicast))
         - if asciicast.private?
           = render 'asciicasts/private_label'
         - if asciicast.featured?

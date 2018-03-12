@@ -10,7 +10,7 @@ module AsciicastsHelper
   def player_tag(asciicast, options, skip_titlebar)
     opts = {
       id: 'player',
-      src: '/asciinema'.concat(asciicast.url),
+      src: "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(asciicast.url),
       cols: options.cols || asciicast.width,
       rows: options.rows || asciicast.height,
       poster: options.poster || base64_poster(asciicast),
@@ -39,20 +39,20 @@ module AsciicastsHelper
   end
 
   def embed_script(asciicast)
-    src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :js))
+    src = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast, format: :js))
     id = "asciicast-#{asciicast.to_param}"
     %(<script src="#{src}" id="#{id}" async></script>)
   end
 
   def embed_html_link(asciicast)
-    img_src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :png))
-    url = ("#{root_url}asciinema"<<asciicast_path(asciicast))
+    img_src = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast, format: :png))
+    url = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast))
     %(<a href="#{url}" target="_blank"><img src="#{img_src}" /></a>)
   end
 
   def embed_markdown_link(asciicast)
-    img_src = ("#{root_url}asciinema"<<asciicast_path(asciicast, format: :png))
-    url = ("#{root_url}asciinema"<<asciicast_path(asciicast))
+    img_src = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast, format: :png))
+    url = ("#{root_url}/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<asciicast_path(asciicast))
     "[![asciicast](#{img_src})](#{url})"
   end
 

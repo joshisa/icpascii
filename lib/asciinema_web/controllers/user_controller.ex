@@ -8,7 +8,7 @@ defmodule AsciinemaWeb.UserController do
   def new(conn, %{"t" => signup_token}) do
     conn
     |> put_session(:signup_token, signup_token)
-    |> redirect(to: Enum.join(["/asciinema",(users_path(conn, :new))],""))
+    |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (users_path(conn, :new))],""))
   end
   def new(conn, _params) do
     render(conn, "new.html")
@@ -23,19 +23,19 @@ defmodule AsciinemaWeb.UserController do
         conn
         |> Auth.log_in(user)
         |> put_rails_flash(:info, "Welcome to asciinema!")
-        |> redirect(to: "/asciinema/username/new")
+        |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), "/username/new"],""))
       {:error, :token_invalid} ->
         conn
         |> put_flash(:error, "Invalid sign-up link.")
-        |> redirect(to: Enum.join(["/asciinema",(login_path(conn, :new))],""))
+        |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (login_path(conn, :new))],""))
       {:error, :token_expired} ->
         conn
         |> put_flash(:error, "This sign-up link has expired, sorry.")
-        |> redirect(to: Enum.join(["/asciinema",(login_path(conn, :new))],""))
+        |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (login_path(conn, :new))],""))
       {:error, :email_taken} ->
         conn
         |> put_flash(:error, "You already signed up with this email.")
-        |> redirect(to: Enum.join(["/asciinema",(login_path(conn, :new))],""))
+        |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (login_path(conn, :new))],""))
     end
   end
 
@@ -52,7 +52,7 @@ defmodule AsciinemaWeb.UserController do
       {:ok, user} ->
         conn
         |> put_rails_flash(:info, "Account settings saved.")
-        |> redirect(to: Enum.join(["/asciinema",(profile_path(conn, user))],""))
+        |> redirect(to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (profile_path(conn, user))],""))
       {:error, %Ecto.Changeset{} = changeset} ->
         render_edit_form(conn, user, changeset)
     end

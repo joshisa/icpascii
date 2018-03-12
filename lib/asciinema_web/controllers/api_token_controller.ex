@@ -14,11 +14,11 @@ defmodule AsciinemaWeb.ApiTokenController do
       {:error, :token_invalid} ->
         conn
         |> put_rails_flash(:alert, "Invalid token. Make sure you pasted the URL correctly.")
-        |> redirect(to: "/asciinema/")
+        |> redirect(to: Enum.join(["/",System.get_env("RAILS_RELATIVE_URL_ROOT")],""))
       {:error, :token_revoked} ->
         conn
         |> put_rails_flash(:alert, "This token has been revoked.")
-        |> redirect(to: "/asciinema/")
+        |> redirect(to: Enum.join(["/",System.get_env("RAILS_RELATIVE_URL_ROOT")],""))
     end
   end
 
@@ -42,6 +42,6 @@ defmodule AsciinemaWeb.ApiTokenController do
              %User{} = user -> profile_path(user)
            end
 
-    redirect(conn, to: Enum.join(["/asciinema", path],""))
+    redirect(conn, to: Enum.join(["/",System.get_env("RAILS_RELATIVE_URL_ROOT"), path],""))
   end
 end

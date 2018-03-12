@@ -1,7 +1,7 @@
 <div class="container edit-page">
   <div class="row">
     <div class="col-md-9">
-      <%= form_for @changeset, Enum.join(["/asciinema",(user_path(@conn, :update))],""), [class: "simple_form form-horizontal", novalidate: "novalidate", role: "form"], fn f -> %>
+      <%= form_for @changeset, Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (user_path(@conn, :update))],""), [class: "simple_form form-horizontal", novalidate: "novalidate", role: "form"], fn f -> %>
         <legend>Account settings</legend>
 
         <div class="form-group string optional user_username <%= error_class(f, :username) %>">
@@ -52,7 +52,7 @@
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9 col-lg-offset-2 col-lg-10">
             <%= submit "Save", class: "btn btn-primary" %>
-            <%= link "Cancel", to: Enum.join(["/asciinema",(profile_path(@conn))],""), class: "btn" %>
+            <%= link "Cancel", to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (profile_path(@conn))],""), class: "btn" %>
           </div>
         </div>
       <% end %>
@@ -70,7 +70,7 @@
 
         <ul>
           <%= for t <- active_tokens(@api_tokens) do %>
-            <li><code><%= t.token %></code> registered <%= time_ago_tag(t.created_at) %> - <%= link "Revoke", to: "/asciinema/api_tokens/#{t.id}", method: "delete" %></li>
+            <li><code><%= t.token %></code> registered <%= time_ago_tag(t.created_at) %> - <%= link "Revoke", to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), "/api_tokens/#{t.id}"],""), method: "delete" %></li>
           <% end %>
         </ul>
 

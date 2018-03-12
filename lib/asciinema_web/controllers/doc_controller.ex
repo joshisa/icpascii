@@ -5,7 +5,7 @@ defmodule AsciinemaWeb.DocController do
   @topics ["how-it-works", "getting-started", "installation", "usage", "config", "embedding", "faq"]
 
   def index(conn, _params) do
-    redirect conn, to: Enum.join(["/asciinema", doc_path(conn, :show, :"getting-started")], "")
+    redirect conn, to: Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), doc_path(conn, :show, :"getting-started")], "")
   end
 
   def show(conn, %{"topic" => topic}) when topic in @topics do

@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<%= form_for @conn, Enum.join(["/asciinema",(session_path(@conn, :create))],""), [id: "login", as: :login], fn _f -> %>
+<%= form_for @conn, Enum.join(["/", System.get_env("RAILS_RELATIVE_URL_ROOT"), (session_path(@conn, :create))],""), [id: "login", as: :login], fn _f -> %>
 <% end %>
 
 <script>

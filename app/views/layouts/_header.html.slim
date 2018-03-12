@@ -5,15 +5,15 @@ header.navbar.navbar-default[role="navigation"]
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="/asciinema"
+      a.navbar-brand href="/#{ENV['RAILS_RELATIVE_URL_ROOT']}"
         = image_tag 'logo-red.svg'
 
     .collapse.navbar-collapse.navbar-ex1-collapse
       ul.nav.navbar-nav
         li
-          = link_to "Browse", "/asciinema".concat(category_path(:featured))
+          = link_to "Browse", "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(category_path(:featured))
         li
-          = link_to "Docs", "/asciinema/docs"
+          = link_to "Docs", "/#{ENV['RAILS_RELATIVE_URL_ROOT']}/docs"
         li
           = link_to "Blog", 'http://blog.asciinema.org'
 
@@ -26,11 +26,11 @@ header.navbar.navbar-default[role="navigation"]
               b.caret
             ul.dropdown-menu
               li
-                a href=("/asciinema"<<profile_path(current_user)) Profile
+                a href=("/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<profile_path(current_user)) Profile
               li
-                a href=("/asciinema"<<edit_user_path) Settings
+                a href=("/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<edit_user_path) Settings
               li
-                a.logout href=("/asciinema"<<logout_path) Log out
+                a.logout href=("/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<logout_path) Log out
         - else
           li
-            a#log-in href=("/asciinema"<<new_login_path) Log in / Sign up
+            a#log-in href=("/#{ENV['RAILS_RELATIVE_URL_ROOT']}"<<new_login_path) Log in / Sign up

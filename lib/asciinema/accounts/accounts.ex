@@ -96,7 +96,7 @@ defmodule Asciinema.Accounts do
 
   def signup_url(email) do
     token = signup_token(email)
-    Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema/users/new?t=",token],"")
+    Enum.join([AsciinemaWeb.Endpoint.url,"/",System.get_env("RAILS_RELATIVE_URL_ROOT"),"/users/new?t=",token],"")
 #   AsciinemaWeb.Router.Helpers.users_url(AsciinemaWeb.Endpoint, :new, t: token)
   end
 
@@ -107,7 +107,7 @@ defmodule Asciinema.Accounts do
 
   def login_url(%User{} = user) do
     token = login_token(user)
-    Enum.join([AsciinemaWeb.Endpoint.url,"/asciinema/session/new?t=",token],"")
+    Enum.join([AsciinemaWeb.Endpoint.url,"/",System.get_env("RAILS_RELATIVE_URL_ROOT"),"/session/new?t=",token],"")
 #    AsciinemaWeb.Router.Helpers.session_url(AsciinemaWeb.Endpoint, :new, t: token)
   end
 

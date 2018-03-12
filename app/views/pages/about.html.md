@@ -16,11 +16,11 @@ asciinema project is built of several sub-projects:
 * javascript player ([source code](https://github.com/asciinema/asciinema-player))
 
 If technical details interest you then read more about
-[how it works](/asciinema/docs/how-it-works).
+[how it works](/<%= "#{ENV['RAILS_RELATIVE_URL_ROOT']}" %>/docs/how-it-works).
 
 ## Contributing
 
-Help the project by [contributing](/asciinema<%= contributing_path %>) money or time.
+Help the project by [contributing](/<%= "#{ENV['RAILS_RELATIVE_URL_ROOT']}" %><%= contributing_path %>) money or time.
 
 ## A bit of history
 

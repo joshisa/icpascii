@@ -3,11 +3,11 @@ footer
     .row
       .col-md-4.col-xs-4
         ul.links
-          li = link_to 'About', "/asciinema".concat(about_path)
-          li = link_to 'Contributing', "/asciinema".concat(contributing_path)
-          li = link_to 'Terms of Service', "/asciinema".concat(tos_path)
-          li = link_to 'Privacy Policy', "/asciinema".concat(privacy_path)
-          li = link_to 'Contact', "/asciinema".concat(contact_path)
+          li = link_to 'About', "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(about_path)
+          li = link_to 'Contributing', "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(contributing_path)
+          li = link_to 'Terms of Service', "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(tos_path)
+          li = link_to 'Privacy Policy', "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(privacy_path)
+          li = link_to 'Contact', "/#{ENV['RAILS_RELATIVE_URL_ROOT']}".concat(contact_path)
 
       .col-md-4.col-xs-4.text-center
         span
